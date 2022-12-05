@@ -13,25 +13,6 @@ In this project, my goal is to predict the soccer match results based on the sen
 
 First, I collect the raw data using reddit API. For each match, I design and compute various sentiment metrics classified by the commenter's flair (team). Second, using statistical tests, I draw inferences on the variance in the sentiment for different flair types across different results. Using this analysis, I evaluate machine learning models for match result prediction based on the sentiment.
 
-
-## Table of Contents
-
-1. [Introduction](#introduction)
-
-2. [Setup](#setup)
-
-3. [Data Collection](#data-collection)
-
-4. [Exploratory Data Analysis](#eda)
-
-5. [Inferential Statistics](#stat-inference)
-
-6. [Data Imputation](#data-imputation)
-
-7. [Binary Classification](#binary-classification)
-
-8. [Conclusion](#conclusion)
-
 <a id ="introduction"></a>
 
 **The code for this blog is on** [GitHub](https://github.com/sharan-naribole/reddit-sentiment-soccer-prediction/blob/master/Reddit%20Sentiment-based%20Match%20Result%20Prediction.ipynb).
