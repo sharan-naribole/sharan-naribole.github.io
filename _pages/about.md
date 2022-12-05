@@ -35,7 +35,7 @@ Networking, IEEE Transactions on Communications, IEEE Transactions on Wireless C
 
 [rng]: http://networks.rice.edu/
 [knightly]: http://knightly.rice.edu/
-[email]: mailto:{{ author.email }}
+[email]: mailto:{{ site.author.email }}
 [Read more ..]: https://sharan-naribole.github.io/news/
 [US11357025B2]: https://patents.google.com/patent/US11357025B2/
 [US11452116B2]: https://patents.google.com/patent/US11452116B2/
