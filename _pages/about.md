@@ -16,7 +16,7 @@ redirect_from:
 
 [Read more ..]
 
-**Accepting invitations for conference/journal review invitations in the area of wireless communications and networking. Please contact by [email].**
+**Accepting invitations for conference/journal reviews in the area of wireless communications and networking. Please contact by [email].**
 {: .notice--info}
 
 ## About Me 
