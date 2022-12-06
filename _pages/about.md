@@ -17,7 +17,7 @@ redirect_from:
 
 [Read more ..]
 
-**Accepting review invitations for conference/journal submissions in the area of wireless communications** including mobile and wireless networks, mobile applications and sensing, modeling and simulations, WLANs/WPANs, AR/VR, QoS, millimeter wave, Visible Light communications, latency-sensitive networks, etc.
+**Accepting review invitations for conference/journal submissions in the area of wireless communications** including mobile and wireless networks, mobile applications and sensing, modeling and simulations, WLANs/WPANs, AR/VR, QoS, millimeter wave, Visible Light communications, latency-sensitive networks, software-defined radios, testbeds etc.
 **Please contact by [email].**
 {: .notice--info}
 
