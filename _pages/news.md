@@ -7,7 +7,7 @@ redirect_from:
   - /news.html
 ---
 
-- [Dec 2022] Joined Workshop on ns-3 2023 TPC
+- [Dec 2022] Joined IEEE ICC 2023 - Mobile & Wireless Networks TPC
 - [Sep 2022] Patent granted on NSTR Mobile AP operation ([US11452116B2])
 - [Sep 2022] Patent granted on NSTR Concurrent Downlink operation ([US11438926B2])
 - [Jun 2022] Patent granted on Multi-link TXOP Aggregation ([US11357025B2]) 
