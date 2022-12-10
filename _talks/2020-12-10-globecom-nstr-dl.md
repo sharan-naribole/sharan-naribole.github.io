@@ -7,7 +7,7 @@ date: 2020-12-10 12:00:00 -0600
 redirect_from: 
   - /2020/12/10/globecom-2020-simultaneous-downlink-nstr.html
 ---
-Presentation for Simultaneous NSTR Downlink operation at [IEEE GLOBECOM 2020](https://globecom2020.ieee-globecom.org/)
+Presentation on Simultaneous NSTR Downlink operation at [IEEE GLOBECOM 2020](https://globecom2020.ieee-globecom.org/)
 
 ## Abstract
 

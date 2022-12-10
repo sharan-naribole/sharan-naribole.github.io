@@ -7,7 +7,7 @@ date: 2020-05-18 12:00:00 -0600
 redirect_from: 
   - /2020/05/18/wcnc-2020-str-constraints.html
 ---
-Presentation for MLO Constraints paper accepted to [IEEE WCNC 2020](https://wcnc2020.ieee-wcnc.org/program/full-program)  
+Presentation on MLO Constraints at [IEEE WCNC 2020](https://wcnc2020.ieee-wcnc.org/program/full-program)  
 
 ## Abstract
 

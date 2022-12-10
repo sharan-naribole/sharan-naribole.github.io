@@ -7,7 +7,7 @@ date: 2019-09-25 12:00:00 -0600
 redirect_from: 
   - /2019/09/25/vtc-2019-mu-edca.html
 ---
-Presentation for 802.11ax OFDMA MU EDCA paper accepted to [IEEE VTC Fall 2019](https://www.ieeevtc.org/vtc2019fall/)
+Presentation on 802.11ax OFDMA MU EDCA at [IEEE VTC Fall 2019](https://www.ieeevtc.org/vtc2019fall/)
 
 ## Abstract
 

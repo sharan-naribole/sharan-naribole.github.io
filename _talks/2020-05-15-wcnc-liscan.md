@@ -7,7 +7,7 @@ date: 2020-05-15 12:00:00 -0600
 redirect_from: 
   - /2020/05/15/wcnc-2020-liscan.html
 ---
-Presentation for LiSCAN paper accepted to [IEEE WCNC 2020](https://wcnc2020.ieee-wcnc.org/program/full-program) 
+Presentation on LiSCAN at [IEEE WCNC 2020](https://wcnc2020.ieee-wcnc.org/program/full-program) 
 
 ## Abstract
 
