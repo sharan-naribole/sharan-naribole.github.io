@@ -30,6 +30,10 @@ MU EDCA channel access mode has negligible impact on network
 performance and (c) 200 ms of MU EDCA channel access mode
 can potentially support a dense network of almost 2000 STAs.
 
-## Presentation 
+## Slides
+
+[Download slides][slides]
 
 <iframe src="https://docs.google.com/viewer?url=https://github.com/sharan-naribole/sharan-naribole.github.io/raw/master/files/vtc_2019_mu_edca.pdf&embedded=true" width="100%" height="600px" style="border:thick solid #708090 ;">Your browser does not support the PDF embedding. </iframe>
+
+[slides]: https://github.com/sharan-naribole/sharan-naribole.github.io/raw/master/files/vtc_2019_mu_edca.pdf
