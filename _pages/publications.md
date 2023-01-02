@@ -21,9 +21,9 @@ redirect_from:
 
 - S. Naribole and E. Knightly, "Scalable Multicast in Highly-Directional 60 GHz WLANs," in IEEE/ACM Transactions on Networking, July 2017. ([paper](https://ieeexplore.ieee.org/document/7968480/))
 
-- S. Naribole, S.Chen, E. Hang, E. Knightly, "LiRa: a WLAN architecture for Visible Light Communication with a Wi-Fi uplink," in Proceedings of IEEE SECON, San Diego, US, June 2017. ([paper](http://ieeexplore.ieee.org/document/7964932/) and [slides](http://networks.rice.edu/files/2017/06/SECON_FINAL-1go19fh.pdf))
+- S. Naribole, S.Chen, E. Hang, E. Knightly, "LiRa: a WLAN architecture for Visible Light Communication with a Wi-Fi uplink," in Proceedings of IEEE SECON, San Diego, US, June 2017. ([paper](http://ieeexplore.ieee.org/document/7964932/))
 
-- S. Naribole and E. Knightly, "Scalable Multicast in Highly-Directional 60 GHz WLANs," in Proceedings of IEEE SECON, London, UK, June 2016. ([paper](http://ieeexplore.ieee.org/document/7733014/), [slides](http://networks.rice.edu/files/2016/07/SECON_SDM_sharan-2257bi8.pdf) and [1-min video](https://www.youtube.com/watch?v=-bieBfboWNA))
+- S. Naribole and E. Knightly, "Scalable Multicast in Highly-Directional 60 GHz WLANs," in Proceedings of IEEE SECON, London, UK, June 2016. ([paper](http://ieeexplore.ieee.org/document/7733014/))
 
 - S. Naribole, "Small Cells and Mobile Clients: a Measurement Study of an Operational Network," Masters Thesis, December 2014. ([thesis](https://scholarship.rice.edu/handle/1911/88374), [abstract](https://scholarship.rice.edu/bitstream/handle/1911/88374/sharan_MS_abstract_final.pdf))
 
