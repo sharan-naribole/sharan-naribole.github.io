@@ -7,6 +7,7 @@ redirect_from:
   - /news.html
 ---
 
+- [Feb 2023] TPC member of IEEE WoWMoM 2023
 - [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
 - [Jan 2023] TPC member of IEEE INFOCOM 2023 Posters and Demos
 - [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks TPC
