@@ -8,30 +8,16 @@ redirect_from:
   - /about.html
 ---
 
-## News
-- [Feb 2023] TPC member of IEEE WoWMoM 2023
-- [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
-- [Jan 2023] TPC member of IEEE INFOCOM 2023 Posters and Demos
-- [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks Symposium
-- [Sep 2022] Patent granted on NSTR Mobile AP operation ([US11452116B2]) 
-- [Sep 2022] Patent granted on NSTR Concurrent Downlink operation ([US11438926B2])
-
-[Read more ..]
-
-**Accepting review invitations for conference/journal submissions in the area of wireless communications** including mobile and wireless networks, mobile applications and sensing, modeling and simulations, WLANs/WPANs, AR/VR, QoS, millimeter wave, Visible Light communications, latency-sensitive networks, software-defined radios, testbeds etc.
-**Please contact by [email].**
-{: .notice--info}
-
 ## About Me 
 
 Currently, I am part of Wireless Architecture team at Apple Inc. designing and implementing next-generation wireless systems and protocols to enhance user experiences.
 
 I have 5+ years industry experience in modeling and evaluation of protocols and device behaviors in network-scale simulation/emulation platforms. I actively participate in wireless 
-standards development including WiFi 802.11ac/ax/be, 5G, etc and contribute to open-source [ns-3] network simulator.
+standards development including WiFi 802.11ac/ax/be etc. and contribute to open-source [ns-3] network simulator.
 
 I received my Ph.D. in Electrical & Computer Engineering from Rice University in 2018. I was a member of the [Rice Networks Group][rng] working with [Prof. Edward Knightly][knightly]. My Ph.D. thesis research focused on designing networking algorithms to enhance Wireless LANs with new spectrum at 60 GHz and Visible Light. 
 
-I am actively serving as a reviewer for conferences/journals including IEEE Transactions on
+I have served as a reviewer for top conferences/journals including IEEE Transactions on
 Networking, IEEE Transactions on Communications, IEEE Transactions on Wireless Communications, IEEE Communication Magazine, IEEE INFOCOM, IEEE ICC etc. I served as a Session Chair for State-of-the-Art WiFi Technologies session of the IEEE Vehicular Technology Conference - Fall 2019.
 
 [ns-3]: https://www.nsnam.org/
