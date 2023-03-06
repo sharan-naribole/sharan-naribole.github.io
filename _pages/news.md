@@ -7,6 +7,7 @@ redirect_from:
   - /news.html
 ---
 
+- [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
 - [Feb 2023] TPC member of Workshop on ns-3 2023
 - [Feb 2023] TPC member of IEEE WoWMoM 2023
 - [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum

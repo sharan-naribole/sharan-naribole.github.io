@@ -8,6 +8,15 @@ redirect_from:
   - /about.html
 ---
 
+## News
+- [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
+- [Feb 2023] TPC member of IEEE WoWMoM 2023
+- [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
+- [Jan 2023] TPC member of IEEE INFOCOM 2023 Posters and Demos
+- [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks Symposium
+
+[Read more ..]
+
 ## About Me 
 
 Currently, I am part of Wireless Architecture team at Apple Inc. designing and implementing next-generation wireless systems and protocols to enhance user experiences.
