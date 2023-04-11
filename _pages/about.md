@@ -9,11 +9,11 @@ redirect_from:
 ---
 
 ## News
+- [Apr 2023] TPC member of ICCCN 2023
+- [Mar 2023] TPC member of MedComNet 2023
 - [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
+- [Feb 2023] TPC member of Workshop on ns-3 2023
 - [Feb 2023] TPC member of IEEE WoWMoM 2023
-- [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
-- [Jan 2023] TPC member of IEEE INFOCOM 2023 Posters and Demos
-- [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks Symposium
 
 [Read more ..]
 

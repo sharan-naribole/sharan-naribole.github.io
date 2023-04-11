@@ -7,6 +7,8 @@ redirect_from:
   - /news.html
 ---
 
+- [Apr 2023] TPC member of ICCCN 2023
+- [Mar 2023] TPC member of MedComNet 2023
 - [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
 - [Feb 2023] TPC member of Workshop on ns-3 2023
 - [Feb 2023] TPC member of IEEE WoWMoM 2023
