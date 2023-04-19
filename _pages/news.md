@@ -10,6 +10,7 @@ redirect_from:
 - [Apr 2023] TPC member of ICCCN 2023
 - [Mar 2023] TPC member of MedComNet 2023
 - [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
+- [Feb 2023] Patent granted on Coordinated Spatial Reuse ([US11595994B2])
 - [Feb 2023] TPC member of Workshop on ns-3 2023
 - [Feb 2023] TPC member of IEEE WoWMoM 2023
 - [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
@@ -56,3 +57,4 @@ redirect_from:
 [US11357025B2]: https://patents.google.com/patent/US11357025B2/
 [US11234243B2]: https://patents.google.com/patent/US11234243B2/
 [US11102740B2]: https://patents.google.com/patent/US11102740B2/ 
+[US11595994B2]: https://patents.google.com/patent/US11595994B2/
