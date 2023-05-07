@@ -9,12 +9,12 @@ redirect_from:
 ---
 
 ## News
+- [May 2023] TPC member of IEEE SECON 2023
+- [May 2023] TPC member of IEEE PIMRC 2023
 - [Apr 2023] TPC member of ICCCN 2023
 - [Mar 2023] TPC member of MedComNet 2023
 - [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
 - [Feb 2023] Patent granted on Coordinated Spatial Reuse ([US11595994B2])
-- [Feb 2023] TPC member of Workshop on ns-3 2023
-- [Feb 2023] TPC member of IEEE WoWMoM 2023
 
 [Read more ..]
 

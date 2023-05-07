@@ -7,6 +7,8 @@ redirect_from:
   - /news.html
 ---
 
+- [May 2023] TPC member of IEEE SECON 2023
+- [May 2023] TPC member of IEEE PIMRC 2023
 - [Apr 2023] TPC member of ICCCN 2023
 - [Mar 2023] TPC member of MedComNet 2023
 - [Mar 2023] TPC member of IEEE/ACM IWQoS 2023
@@ -15,7 +17,7 @@ redirect_from:
 - [Feb 2023] TPC member of IEEE WoWMoM 2023
 - [Jan 2023] TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
 - [Jan 2023] TPC member of IEEE INFOCOM 2023 Posters and Demos
-- [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks TPC
+- [Dec 2022] TPC member of IEEE ICC 2023 - Mobile & Wireless Networks track
 - [Sep 2022] Patent granted on NSTR Mobile AP operation ([US11452116B2])
 - [Sep 2022] Patent granted on NSTR Concurrent Downlink operation ([US11438926B2])
 - [Jun 2022] Patent granted on Multi-link TXOP Aggregation ([US11357025B2]) 
