@@ -7,6 +7,10 @@ redirect_from:
   - /news.html
 ---
 
+- [Aug 2023] Completed Machine Learning Specialization by DeepLearning.AI ([ML-Spec-Certi])
+- [Aug 2023] Patent granted on Shared Transmission Opportunity ([US11723006B2])
+- [Jul 2023] Patent granted on Virtual BSS Authentication ([US11696129B2])
+- [Jun 2023] Patent granted on Multi-link Power Usage ([US11690012B2])
 - [May 2023] TPC member of IEEE SECON 2023
 - [May 2023] TPC member of IEEE PIMRC 2023
 - [Apr 2023] TPC member of ICCCN 2023
@@ -60,3 +64,7 @@ redirect_from:
 [US11234243B2]: https://patents.google.com/patent/US11234243B2/
 [US11102740B2]: https://patents.google.com/patent/US11102740B2/ 
 [US11595994B2]: https://patents.google.com/patent/US11595994B2/
+[US11690012B2]: https://patents.google.com/patent/US11690012B2/
+[US11696129B2]: https://patents.google.com/patent/US11696129B2/
+[US11723006B2]: https://patents.google.com/patent/US11723006B2/
+[ML-Spec-Certi]: https://coursera.org/share/56d6d6a717003a9e2dde5b6acd0b046a
