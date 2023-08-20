@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 ## News
-- [Aug 2023] Completed Machine Learning Specialization by DeepLearning.AI ([ML-Spec-Certi])
+- [Aug 2023] Completed [Machine Learning Specialization] by DeepLearning.AI
 - [Aug 2023] Patent granted on Shared Transmission Opportunity ([US11723006B2])
 - [Jul 2023] Patent granted on Virtual BSS Authentication ([US11696129B2])
 - [Jun 2023] Patent granted on Multi-link Power Usage ([US11690012B2])
@@ -42,4 +42,4 @@ Networking, IEEE Transactions on Communications, IEEE Transactions on Wireless C
 [US11690012B2]: https://patents.google.com/patent/US11690012B2/
 [US11696129B2]: https://patents.google.com/patent/US11696129B2/
 [US11723006B2]: https://patents.google.com/patent/US11723006B2/
-[ML-Spec-Certi]: https://coursera.org/share/56d6d6a717003a9e2dde5b6acd0b046a
+[Machine Learning Specialization]: https://coursera.org/share/56d6d6a717003a9e2dde5b6acd0b046a
