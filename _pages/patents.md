@@ -14,12 +14,13 @@ redirect_from:
 - [US11357025B2] : Multi link TXOP aggregation
 - [US11234243B2] : Method and system for transitioning station to uplink multi-user disable mode and uplink multi-user enable mode
 - [US11102740B2] : System and method for providing a synchronized mode for WLAN operation in a WLAN band
-
-## Patents Pending
-- [US20220046621A1] : Systems, methods, and apparatus for multi-link spatial multiplexing
 - [US20210289442A1] : Systems and methods for managing power usage
 - [US20210289499A1] : Shared transmission opportunity operation in multi-access point coordination
 - [US20210084493A1] : Systems, methods, and devices for association and authentication for multi access point coordination
+
+## Patents Pending
+- [US20220046621A1] : Systems, methods, and apparatus for multi-link spatial multiplexing
+- [US20250097840A1] : Systems and methods for managing power usage of a multi-link device equipped with a plurality of radio interfaces
 
 [US11452116B2]: https://patents.google.com/patent/US11452116B2/
 [US11438926B2]: https://patents.google.com/patent/US11438926B2
@@ -31,3 +32,4 @@ redirect_from:
 [US20210289442A1]: https://patents.google.com/patent/US20210289442A1
 [US20210289499A1]: https://patents.google.com/patent/US20210289499A1
 [US20210084493A1]: https://patents.google.com/patent/US20210084493A1/en
+[US20250097840A1]: https://patents.google.com/patent/US20250097840A1/en
