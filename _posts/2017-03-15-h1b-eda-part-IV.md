@@ -1,12 +1,12 @@
 ---
 title: 'H-1B Visa Petitions Data Analysis using R (Part IV): Kaggle Open Data'
 date: 2017-03-15 12:00:00 -0600
-permalink: /posts/2017/03/15/h1b-eda-part-III
+permalink: /posts/2017/03/15/h1b-eda-part-IV
 tags:
   - data science
   - kaggle
 redirect_from:
-  - /2017/03/15/h1b-eda-part-III.html
+  - /2017/03/15/h1b-eda-part-IV.html
 toc: true
 ---
 
@@ -72,7 +72,7 @@ The instructions provided while uploading to Kaggle were quite helpful. Due to t
 This brings an end to this series on H-1B Visa Petitions Data Analysis using R. Hope you've enjoyed reading thus far and found something useful! Thanks
 
 [reddit]: https://www.reddit.com/
-[kaggle-facebook]:https://www.facebook.com/kaggle/photos/a.10150387148668464.377856.135534208463/10155150524548464/
+[kaggle-facebook]: https://www.facebook.com/kaggle/photos/a.10150387148668464.377856.135534208463/10155150524548464/
 [kaggle-twitter]: https://twitter.com/kaggle/status/842108218709037056
 [kaggle-blog]: http://blog.kaggle.com/
 [kaggle-h1b]: https://www.kaggle.com/nsharan/h-1b-visa
@@ -83,5 +83,5 @@ This brings an end to this series on H-1B Visa Petitions Data Analysis using R. 
 [r-bloggers]: https://www.r-bloggers.com/h-1b-visa-petitions-exploratory-data-analysis/
 [h1b-part-I]: https://sharan-naribole.github.io/2017/02/24/h1b-eda-part-I.html
 [h1b-part-II]: https://sharan-naribole.github.io/2017/02/26/h1b-eda-part-II.html
-[h1b-part-III]:https://sharan-naribole.github.io/2017/02/28/h1b-eda-part-III.html
+[h1b-part-III]: https://sharan-naribole.github.io/2017/02/28/h1b-eda-part-III.html
 [h1b-part-IV]: https://sharan-naribole.github.io/2017/03/15/h1b-eda-part-IV.html
