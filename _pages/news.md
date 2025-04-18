@@ -7,6 +7,11 @@ redirect_from:
   - /news.html
 ---
 
+- [Apr 2025] TPC member of ICNS3 2025
+- [May 2024] TPC member of IEEE PIMRC 2024
+- [Mar 2024] TPC member of Workshop on ns-3 2023
+- [Feb 2024] TPC member of IEEE WoWMoM 2024
+- [Dec 2023] TPC member of IEEE ICC 2024 - Mobile & Wireless Networks track
 - [Aug 2023] Completed [Machine Learning Specialization] by DeepLearning.AI
 - [Aug 2023] Patent granted on Shared Transmission Opportunity ([US11723006B2])
 - [Jul 2023] Patent granted on Virtual BSS Authentication ([US11696129B2])
@@ -58,13 +63,13 @@ redirect_from:
 - [Aug 2012] Moved to Houston, Texas USA
 - [May 2012] Graduated with B.Tech (Honors), E&ECE, IIT Kharagpur
 
-[US11452116B2]: https://patents.google.com/patent/US11452116B2/
+[US11452116B2]: https://patents.google.com/patent/US11452116B2
 [US11438926B2]: https://patents.google.com/patent/US11438926B2
-[US11357025B2]: https://patents.google.com/patent/US11357025B2/
-[US11234243B2]: https://patents.google.com/patent/US11234243B2/
-[US11102740B2]: https://patents.google.com/patent/US11102740B2/ 
-[US11595994B2]: https://patents.google.com/patent/US11595994B2/
-[US11690012B2]: https://patents.google.com/patent/US11690012B2/
-[US11696129B2]: https://patents.google.com/patent/US11696129B2/
-[US11723006B2]: https://patents.google.com/patent/US11723006B2/
+[US11357025B2]: https://patents.google.com/patent/US11357025B2
+[US11234243B2]: https://patents.google.com/patent/US11234243B2
+[US11102740B2]: https://patents.google.com/patent/US11102740B2
+[US11595994B2]: https://patents.google.com/patent/US11595994B2
+[US11690012B2]: https://patents.google.com/patent/US11690012B2
+[US11696129B2]: https://patents.google.com/patent/US11696129B2
+[US11723006B2]: https://patents.google.com/patent/US11723006B2
 [Machine Learning Specialization]: https://coursera.org/share/56d6d6a717003a9e2dde5b6acd0b046a
