@@ -8,16 +8,17 @@ redirect_from:
 ---
 
 ## Conference Service
+- TPC member of International Conference on ns-3 2025
 - TPC member of IEEE SECON 2023
-- TPC member of IEEE PIMRC 2023 - Practical and Experimental Systems track
+- TPC member of IEEE PIMRC 2023, 2024 - Practical and Experimental Systems track
 - TPC member of ICCCN 2023 - Network Architecture, Algorithm, Protocol, and Evaluation track
 - TPC member of MedComNet 2023
 - TPC member of IEEE/ACM IWQoS 2023
 - TPC member of Workshop on ns-3 2023
-- TPC member of IEEE WoWMoM 2023
+- TPC member of IEEE WoWMoM 2023, 2024
 - TPC member of IEEE WCNC 2023 - Workshop on Smart Spectrum
 - TPC member of IEEE INFOCOM 2023 Posters and Demos
-- TPC member of IEEE ICC 2023 - Mobile & Wireless Networks Symposium
+- TPC member of IEEE ICC 2023, 2024 - Mobile & Wireless Networks Symposium
 - Session Chair, State-of-the-Art Wi-Fi Technologies, IEEE VTC Fall Conference 2019
 
 ## Reviewer Service
