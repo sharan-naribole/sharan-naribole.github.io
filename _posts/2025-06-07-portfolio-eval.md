@@ -4,7 +4,7 @@ date: 2025-06-07 12:00:00 -0700
 permalink: /posts/2025/06/07/portfolio-eval
 tags:
   - backtesting
-  - portfolio analysis
+  - portfolio evaluation
   - ai trading
   - risk parity
 redirect_from:
@@ -19,7 +19,8 @@ toc: true
 ---
 
 
-In this second entry of my AI Trading Strategies Nanodegree blog series, I delve into the completed project **Evaluating Risk adjusted Returns and Backtesting**. This project explores how to collect real financial data, prepare it for quantitative analysis, and evaluate a dynamic investment strategy in particular **Risk Parity** — using Python-based workflows.
+In this second entry of my AI Trading Strategies Nanodegree blog series, I delve into  **Evaluating Risk adjusted Returns and Backtesting** study which was completed as part of the Udacity’s [AI Trading Strategies Nanodegree](https://www.udacity.com/course/ai-trading-strategies--nd881). In this project, using Python-based workflows, I explored how to prepare financial data for quantitative analysis and evaluate the risk adjusted returns of a dynamic **risk parity** weighted investment strategy . 
+
  
 👉 [Project repo](https://github.com/sharan-naribole/finance-returns-backtesting)
 
