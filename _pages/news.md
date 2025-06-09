@@ -7,6 +7,8 @@ redirect_from:
   - /news.html
 ---
 
+- [Jun 2025] Posted [AI Trading Portfolio Eval](/posts/2025/06/07/portfolio-eval) blog
+- [May 2025] Posted [AI Trading Intro](/posts/2025/05/31/ai-trading-intro) blog
 - [Apr 2025] TPC member of ICNS3 2025
 - [May 2024] TPC member of IEEE PIMRC 2024
 - [Mar 2024] TPC member of Workshop on ns-3 2023
