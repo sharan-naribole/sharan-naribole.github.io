@@ -229,7 +229,11 @@ Thanks for reading!
 
 ---
 
-## Resources
+**← Previous Post** [AI Trading Strategies Intro](/posts/2025/05/31/ai-trading-intro)
+
+---
+
+## References
 
 - [The Unlucky Investor's Guide to Options Trading](https://www.amazon.com/Unlucky-Investors-Guide-Options-Trading/dp/1264269121) by Julia Spina
 - [Project Repo](https://github.com/sharan-naribole/finance-returns-backtesting)

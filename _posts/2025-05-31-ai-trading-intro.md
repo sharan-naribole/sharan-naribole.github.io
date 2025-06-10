@@ -74,7 +74,7 @@ Thanks for reading!
 
 ---
 
-## Resources
+## References
 
 - [The Index Card](https://www.amazon.com/Index-Card-Personal-Finance-Simple/dp/0143130680) by Helaine Olen & Harold Pollack
 - [The Simple Path to Wealth](https://www.amazon.com/Simple-Path-Wealth-financial-independence/dp/1533667926) by J.L. Collins
