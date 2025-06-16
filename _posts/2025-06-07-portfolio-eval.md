@@ -19,7 +19,7 @@ toc: true
 ---
 
 
-In this second entry of my AI Trading Strategies Nanodegree blog series, I delve into  **Evaluating Risk adjusted Returns and Backtesting** study which was completed as part of the Udacity’s [AI Trading Strategies Nanodegree](https://www.udacity.com/course/ai-trading-strategies--nd881). In this project, using Python-based workflows, I explored how to prepare financial data for quantitative analysis and evaluate the risk adjusted returns of a dynamic **risk parity** weighted investment strategy . 
+In this blog, I focus on financial data analysis specifically **evaluating returns and backtesting**. This study was inspired from concepts and exercises practiced in Udacity’s [AI Trading Strategies Nanodegree](https://www.udacity.com/course/ai-trading-strategies--nd881) Course 4. In this project, using Python-based workflows, I explored how to prepare financial data for quantitative analysis and evaluate the risk adjusted returns of a dynamic **risk parity** weighted investment strategy . 
 
  
 👉 [Project repo](https://github.com/sharan-naribole/finance-returns-backtesting)
