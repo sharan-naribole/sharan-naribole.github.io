@@ -9,11 +9,11 @@ redirect_from:
 ---
 
 ## News
+- [Dec 2025] Posted [RTOS Systems Part 4: STM32 WiFi LED Controller](/posts/2025/12/14/stm32-esp8266-iot-led-controller)
+- [Dec 2025] Posted [RTOS Systems Part 3: ESP8266 Wi-Fi Web Server](/posts/2025/12/07/esp8266-wifi-web-server)
+- [Dec 2025] Posted [RTOS Systems Part 2: FreeRTOS UART Menu](/posts/2025/12/03/stm32-freertos-uart-menu)
+- [Sep 2025] Posted [RTOS Systems Part 1: Bare-Metal LED Blinker](/posts/2025/09/02/stm32-led-blinker-bare-metal)
 - [Jun 2025] Posted [AI Trading Portfolio Eval](/posts/2025/06/07/portfolio-eval) blog
-- [May 2025] Posted [AI Trading Intro](/posts/2025/05/31/ai-trading-intro) blog
-- [Apr 2025] TPC member of ICNS3 2025
-- [May 2024] TPC member of IEEE PIMRC 2024
-- [Mar 2024] TPC member of Workshop on ns-3 2023
 
 [Read more ..]
 
@@ -33,4 +33,4 @@ Networking, IEEE Transactions on Communications, IEEE Transactions on Wireless C
 [rng]: http://networks.rice.edu/
 [knightly]: http://knightly.rice.edu/
 [email]: mailto:{{ site.author.email }}
-[Read more ..]: https://sharan-naribole.github.io/news/
+[Read more ..]: /news/
