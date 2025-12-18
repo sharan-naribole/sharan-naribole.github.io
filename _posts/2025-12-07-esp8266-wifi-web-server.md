@@ -70,6 +70,7 @@ The ESP8266 revolutionized IoT development when released in 2014:
 **Web Server Capabilities:**
 - 📡 HTTP server on port 80 (RESTful API)
 - 🌐 Responsive HTML interface (mobile-friendly)
+- 🔖 mDNS support - Access via `esp8266-wifi.local`
 - 📊 JSON endpoints for status and client data
 - 🔄 Auto-refresh every 5 seconds (AJAX)
 - 💾 Request history (circular buffer, last 10 requests)
@@ -109,7 +110,7 @@ Recent Requests:
                      ↓
 ┌─────────────────────────────────────────────────┐
 │         ESP8266 NodeMCU Web Server              │
-│         IP: 192.168.1.100 (DHCP assigned)       │
+│    esp8266-wifi.local (192.168.1.100 DHCP)     │
 │                                                 │
 │  ┌─────────────────────────────────────────┐   │
 │  │      HTTP Request Handler               │   │
@@ -156,12 +157,12 @@ Recent Requests:
 **Example API Call:**
 
 ```bash
-# Turn LED ON
-curl http://192.168.1.100/led?state=on
+# Turn LED ON (using mDNS)
+curl http://esp8266-wifi.local/led?state=on
 # Response: LED turned ON
 
-# Get system status
-curl http://192.168.1.100/status
+# Get system status (using mDNS)
+curl http://esp8266-wifi.local/status
 # Response:
 {
   "wifi": {
@@ -179,8 +180,8 @@ curl http://192.168.1.100/status
   }
 }
 
-# Get client history
-curl http://192.168.1.100/clients
+# Get client history (using mDNS)
+curl http://esp8266-wifi.local/clients
 # Response:
 {
   "totalRequests": 42,
@@ -629,7 +630,7 @@ Total Requests: 3
 - ✅ **Arduino-compatible** - Easy to program
 - ✅ **Low cost** - $2-4 per board
 - ✅ **Large flash** - 4MB perfect for storing HTML/CSS
-- ✅ **Rich libraries** - ESP8266WebServer, WiFi, mDNS, OTA, etc.
+- ✅ **Rich libraries** - ESP8266WebServer, WiFi, mDNS (`.local` hostnames), OTA, etc.
 
 **ESP8266 Limitations:**
 - ⚠️ **Limited RAM** - Only 80KB (vs. 192KB on STM32)

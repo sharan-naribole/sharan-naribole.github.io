@@ -39,6 +39,7 @@ This project integrates the STM32 FreeRTOS firmware (Part 2) with the ESP8266 Wi
 *Web interface showing system status, client tracking, LED controls, and recent requests with ACK status*
 
 **Key Features:**
+- mDNS hostname support - Access via `esp8266-led.local`
 - Memory optimized (operates at 100% RAM utilization without crashes)
 - Error handling (UART retry logic, buffer overflow protection)
 - Fault detection (software watchdog, connection monitoring)
@@ -59,7 +60,7 @@ This project integrates the STM32 FreeRTOS firmware (Part 2) with the ESP8266 Wi
                   │ Wi-Fi (HTTP GET /pattern?p=2)
                   ↓
 ┌──────────────────────────────────────────────┐
-│        ESP8266 NodeMCU (Wi-Fi Bridge)        │
+│   ESP8266 NodeMCU (esp8266-led.local)       │
 │  • Receive HTTP request                      │
 │  • Send UART command: "LED_CMD:2\r\n"        │
 │  • Wait for ACK (max 500ms)                  │
