@@ -7,6 +7,11 @@ redirect_from:
   - /news.html
 ---
 
+- [Jan 2026] Posted [Deep Q-Network Trading Part V: Software Architecture & Results](/posts/2026/01/18/dqn-trading-part-V)
+- [Jan 2026] Posted [Deep Q-Network Trading Part IV: DQN Architecture Deep Dive](/posts/2026/01/17/dqn-trading-part-IV)
+- [Jan 2026] Posted [Deep Q-Network Trading Part III: Learning Environment Design](/posts/2026/01/14/dqn-trading-part-III)
+- [Jan 2026] Posted [Deep Q-Network Trading Part II: Data Engineering Pipeline](/posts/2026/01/07/dqn-trading-part-II)
+- [Jan 2026] Posted [Deep Q-Network Trading Part I: Problem Statement & RL Motivation](/posts/2026/01/01/dqn-trading-part-I)
 - [Dec 2025] Posted [RTOS Systems Part 4: STM32 WiFi LED Controller](/posts/2025/12/14/stm32-esp8266-iot-led-controller)
 - [Dec 2025] Posted [RTOS Systems Part 3: ESP8266 Wi-Fi Web Server](/posts/2025/12/07/esp8266-wifi-web-server)
 - [Dec 2025] Posted [RTOS Systems Part 2: FreeRTOS UART Menu](/posts/2025/12/03/stm32-freertos-uart-menu)
