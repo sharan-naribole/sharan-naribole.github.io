@@ -621,6 +621,8 @@ The trained models were evaluated across 5 diverse market periods never seen dur
 
 ![Out-of-Sample Validation Comparison](/images/dqn-trading/sample-validation-comparison.png)
 
+*The figure above shows comprehensive validation metrics for all 4 strategies across 5 periods. Individual period tables below highlight top performers.*
+
 #### Period 1: 2005-02-08 to 2005-12-30 (Pre-Financial Crisis)
 
 | Strategy | Total Return | Sharpe Ratio | Max Drawdown | Trades | Win Rate |
