@@ -171,17 +171,21 @@ Among RL algorithms, I chose **DQN** for several reasons:
 
 ### 1. Discrete Action Space
 
-DQN works well with discrete actions:
+DQN works well with discrete actions. For example, with `share_increments = [10, 50, 100, 200]` and `enable_buy_max = false`:
 - Action 0: HOLD
 - Action 1: BUY 10 shares
 - Action 2: BUY 50 shares
 - Action 3: BUY 100 shares
-- Action 4: SELL 10 shares
-- Action 5: SELL 50 shares
-- Action 6: SELL 100 shares
-- Action 7: SELL ALL
+- Action 4: BUY 200 shares
+- Action 5: SELL 10 shares
+- Action 6: SELL 50 shares
+- Action 7: SELL 100 shares
+- Action 8: SELL 200 shares
+- Action 9: SELL ALL
 
-This is more intuitive than policy gradient methods that handle continuous actions.
+With `enable_buy_max = true`, we add BUY_MAX action (buy as many shares as balance allows), giving 11 total actions.
+
+This discrete action space is more intuitive than policy gradient methods that handle continuous actions.
 
 ### 2. Off-Policy Learning
 

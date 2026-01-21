@@ -165,19 +165,21 @@ We use **share_increments** and **enable_buy_max** to define flexible position s
 
 ```python
 # Configuration
-share_increments = [10, 50, 100]
+share_increments = [10, 50, 100, 200]
 enable_buy_max = True  # Enable BUY_MAX action
 
-# Resulting Action Space (9 actions with BUY_MAX enabled):
+# Resulting Action Space (11 actions with BUY_MAX enabled):
 Action 0: HOLD
 Action 1: BUY 10 shares
 Action 2: BUY 50 shares
 Action 3: BUY 100 shares
-Action 4: BUY_MAX (buy as many shares as balance allows)
-Action 5: SELL 10 shares
-Action 6: SELL 50 shares
-Action 7: SELL 100 shares
-Action 8: SELL ALL (regardless of shares held)
+Action 4: BUY 200 shares
+Action 5: BUY_MAX (buy as many shares as balance allows)
+Action 6: SELL 10 shares
+Action 7: SELL 50 shares
+Action 8: SELL 100 shares
+Action 9: SELL 200 shares
+Action 10: SELL ALL (regardless of shares held)
 ```
 
 **Formula (with BUY_MAX enabled):**
@@ -186,12 +188,16 @@ n_actions = 1 + N + 1 + N + 1
 where N = len(share_increments)
 
 = 1 (HOLD) + N (BUY actions) + 1 (BUY_MAX) + N (SELL actions) + 1 (SELL_ALL)
+
+Example: [10, 50, 100, 200] → 1 + 4 + 1 + 4 + 1 = 11 actions
 ```
 
 **Formula (with BUY_MAX disabled):**
 ```
 n_actions = 1 + N + N + 1
 = 1 (HOLD) + N (BUY actions) + N (SELL actions) + 1 (SELL_ALL)
+
+Example: [10, 50, 100, 200] → 1 + 4 + 4 + 1 = 10 actions
 ```
 
 **Why BUY_MAX?**
@@ -213,7 +219,7 @@ class ActionMasker:
     def __init__(self, share_increments: List[int], enable_buy_max: bool = True):
         """
         Args:
-            share_increments: List of share quantities (e.g., [10, 50, 100])
+            share_increments: List of share quantities (e.g., [10, 50, 100, 200])
             enable_buy_max: Whether to enable BUY_MAX action (default: True)
         """
         self.share_increments = sorted(share_increments)
@@ -719,9 +725,9 @@ Our trading environment implements this MDP:
 - Market features: (window_size, 25 features)
 - Portfolio state: (position_ratio, cash_ratio)
 
-**Action Space** (8 actions with share_increments=[10, 50, 100]):
+**Action Space** (10 actions with share_increments=[10, 50, 100, 200], enable_buy_max=false):
 ```
-{HOLD, BUY_10, BUY_50, BUY_100, SELL_10, SELL_50, SELL_100, SELL_ALL}
+{HOLD, BUY_10, BUY_50, BUY_100, BUY_200, SELL_10, SELL_50, SELL_100, SELL_200, SELL_ALL}
 ```
 
 **Reward Function**:
