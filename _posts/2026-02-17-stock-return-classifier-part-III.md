@@ -35,7 +35,7 @@ toc: true
 
 ## Introduction
 
-In [Part II](/posts/2026/02/17/stock-return-classifier-part-II), we analysed the data and engineered the features. Now the modelling work begins.
+In [Part II](/posts/2026/02/17/stock-return-classifier-part-II), we analysed the data and engineered the features—going from 22 raw indicators down to 12 after log1p transforms and redundancy pruning. Now the modelling work begins.
 
 Before training complex models, we need baselines—simple benchmarks that any ML model must beat to be worth deploying. Then, we train three classifiers with temporal cross-validation and grid-search hyperparameter tuning. Finally, learning curves reveal whether the models are overfitting, underfitting, or data-hungry.
 
@@ -49,17 +49,17 @@ We use **expanding window cross-validation** with 5 folds:
 
 ```
 Data timeline: [============================================]
-                2006                                  Feb 2025
+                2006                                  Feb 2024
 
 Fold 1: Train [====]          | Val [==]
 Fold 2: Train [======]        | Val [==]
 Fold 3: Train [=========]     | Val [==]
 Fold 4: Train [============]  | Val [==]
 Fold 5: Train [==============]| Val [==]
-                                        | Test [===] → Feb 2026
+                                        | Test [======] → Feb 2026
 ```
 
-Each fold's training set grows by one block—simulating a model that retrains on all available history. Validation always falls *after* training chronologically. The test set (last year) is never touched during this entire stage.
+Each fold's training set grows by one block—simulating a model that retrains on all available history. Validation always falls *after* training chronologically. The test set (last 2 years) is never touched during this entire stage.
 
 ### Why Not Standard K-Fold?
 
@@ -79,7 +79,7 @@ We evaluate two baselines on all 5 validation folds:
 
 ### 1. Majority-Class Classifier
 
-Always predicts class 0 (flat/down day). Achieves ~87% accuracy but F1 = 0 because it never predicts a buy signal.
+Always predicts class 0 (flat/down day). Achieves ~86% accuracy but F1 = 0 because it never predicts a buy signal.
 
 ```python
 y_pred = np.zeros(len(y_val))  # always predict 0
@@ -95,24 +95,24 @@ Predicts 1 (buy) when the MACD histogram is positive (short-term momentum bullis
 y_pred = (X_val["MACD_hist"] > 0).astype(int)
 ```
 
-This is a classic momentum strategy. It achieves moderate recall (it fires on many positive-momentum days) but poor precision (~11%)—it doesn't discriminate well between genuine ≥1% days and ordinary positive-momentum days.
+This is a classic momentum strategy. It achieves moderate recall (~0.39) but poor precision (~0.12)—it doesn't discriminate well between genuine ≥1% days and ordinary positive-momentum days.
 
 ### Baseline Results
 
 ![Baseline model comparison](/images/stock-return-classifier/05_baseline_comparison.png)
 
-*Two baselines across validation folds: (1) majority-class — ~87% accuracy, F1=0, useless as a buy signal; (2) MACD momentum rule — moderate recall but low precision (~0.11). These set the minimum bar that ML models must clear to be considered useful.*
+*Two baselines across validation folds: (1) majority-class — ~86% accuracy, F1=0, useless as a buy signal; (2) MACD momentum rule — moderate recall but low precision (~0.12), F1≈0.18. These set the minimum bar that ML models must clear to be considered useful.*
 
 | Baseline | Avg Precision | Avg Recall | Avg F1 |
 |----------|--------------|------------|--------|
 | Majority Class | 0.000 | 0.000 | 0.000 |
-| MACD Momentum | ~0.11 | ~0.55 | ~0.17 |
+| MACD Momentum | ~0.12 | ~0.39 | ~0.18 |
 
-Any ML model that can't beat F1 ≈ 0.17 with better precision is not adding meaningful value over a simple rule.
+Any ML model that can't beat F1 ≈ 0.18 with better precision is not adding meaningful value over a simple rule.
 
 ## ML Models
 
-Three models are trained with `class_weight="balanced"` (Logistic Regression, Random Forest) or `scale_pos_weight` (XGBoost) to handle the 6.7:1 class imbalance:
+Three models are trained with `class_weight="balanced"` (Logistic Regression, Random Forest) or `scale_pos_weight` (XGBoost) to handle the 6.1:1 class imbalance:
 
 ### Logistic Regression
 
@@ -121,7 +121,7 @@ A linear classifier with L2 regularisation. Simple, fast, and interpretable—th
 **Tuned parameter:**
 - `C` (inverse regularisation strength): grid `[0.01, 0.1, 1, 10, 100]`
 
-Lower C → stronger regularisation → simpler model. With 15+ features and ~4,800 training rows, moderate regularisation (C around 1–10) typically works well.
+Lower C → stronger regularisation → simpler model. With 12 features and ~4,600 training rows, moderate regularisation (C around 1–10) typically works well.
 
 ### Random Forest
 
@@ -161,7 +161,7 @@ Grid search over all hyperparameter combinations, averaged across all 5 validati
 
 ### Why F1 as the HPT Metric?
 
-- **Accuracy** is misleading at 87/13 class split
+- **Accuracy** is misleading at 86/14 class split
 - **Precision** alone optimises for avoiding false positives—but may produce a model that rarely fires
 - **Recall** alone optimises for catching all up days—but floods the signal with false positives
 - **F1** (harmonic mean of precision and recall) penalises both extremes and rewards balance
@@ -196,17 +196,24 @@ The best hyperparameters are then used to re-fit the model on the **full trainin
 
 ![Model comparison](/images/stock-return-classifier/06_model_comparison.png)
 
-*All three models evaluated on honest cross-validation. Random Forest achieves the highest average validation F1, followed by Logistic Regression. XGBoost trails in recall—its conservative predictions miss too many up days at the fold level.*
+*All three models evaluated on honest cross-validation (train on each fold's training split, evaluate on its held-out validation split). All models achieve similar F1 scores within a tight band, with XGBoost slightly ahead on F1 and Random Forest leading on ROC-AUC.*
 
-| Model | Avg Val Precision | Avg Val Recall | Avg Val F1 |
-|-------|------------------|---------------|-----------|
-| Logistic Regression | ~0.22 | ~0.62 | ~0.32 |
-| Random Forest | ~0.24 | ~0.67 | **~0.36** |
-| XGBoost | ~0.26 | ~0.48 | ~0.32 |
+| Model | Avg Val Precision | Avg Val Recall | Avg Val F1 | Avg Val ROC-AUC |
+|-------|------------------|---------------|-----------|----------------|
+| Logistic Regression | 0.261 | 0.553 | 0.349 | 0.708 |
+| Random Forest | 0.280 | 0.531 | 0.347 | **0.722** |
+| XGBoost | 0.258 | 0.609 | **0.353** | 0.710 |
 
-**Random Forest** is selected as the best model. Its F1 advantage comes from better recall—it finds more of the actual up days without sacrificing too much precision.
+### Model Selection: F1 Tolerance + ROC-AUC Tiebreak
 
-XGBoost, despite its reputation for tabular data dominance, underperforms here in recall. The boosting iterations tend toward conservative predictions on the minority class, even with `scale_pos_weight`. Random Forest's bagging approach with balanced class weights proves more effective at this imbalance ratio.
+Rather than picking the model with the single highest F1 score, we use a two-stage selection process:
+
+1. **F1 dominance check**: If one model leads all others by > 0.05 in F1, it is selected outright
+2. **ROC-AUC tiebreak**: If multiple models fall within the 0.05 F1 tolerance band, the one with the highest ROC-AUC is selected
+
+In this run, all three models achieve F1 scores within 0.006 of each other (0.347–0.353)—well within the ±0.05 tolerance. The selection falls to ROC-AUC, where **Random Forest leads at 0.722**.
+
+Why ROC-AUC for tiebreaking? ROC-AUC measures the quality of the model's probability *ranking*—how well it separates positive and negative examples across all thresholds. This directly matters for the confidence-threshold portfolio strategies (Strategy 2 and 3), where better probability ranking translates to more effective position sizing.
 
 ## Learning Curves
 
@@ -253,14 +260,13 @@ Random Forest is saved as `models/{project}/best_model.pkl` after re-fitting on 
 
 ```python
 best_rf = RandomForestClassifier(
-    n_estimators=200,
-    max_depth=10,
-    min_samples_split=5,
+    n_estimators=100,
+    max_depth=5,
+    min_samples_split=2,
     class_weight="balanced",
     random_state=42,
 )
 best_rf.fit(X_train_full, y_train_full)
-joblib.dump(best_rf, "models/default_run/best_model.pkl")
 ```
 
 Re-fitting on the full training set (not just the last fold) ensures maximum data utilisation before test evaluation.
@@ -269,13 +275,13 @@ Re-fitting on the full training set (not just the last fold) ensures maximum dat
 
 1. **Expanding window CV is non-negotiable** for financial time series. Standard K-fold would inflate scores and lead to overconfident model selection.
 2. **F1 is the right HPT metric** at this imbalance ratio—optimising accuracy or precision alone leads to degenerate solutions.
-3. **Random Forest outperforms XGBoost** here due to better recall on the minority class. Class imbalance handling via bootstrap bagging + balanced weights is effective.
+3. **All three models perform similarly on F1**—within a 0.006 range. The ROC-AUC tiebreak selects Random Forest for its superior probability ranking (0.722 vs. 0.708–0.710).
 4. **Learning curves plateau early**—additional training data contributes marginal improvement. Feature quality matters more than dataset size for this task.
 5. **Learning curve leakage is subtle**: holding out a fixed evaluation fold prevents the evaluation set from shifting as training size grows.
 
 ## What's Next?
 
-In **Part IV**, we evaluate the best model on the held-out test year—never-seen data—and walk through three portfolio strategies to quantify the economic value of the predictions.
+In **Part IV**, we evaluate the best model on the held-out 2-year test period—never-seen data—and walk through three ML portfolio strategies plus MACD and DCA baselines to quantify the economic value of the predictions.
 
 ---
 

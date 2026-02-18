@@ -45,11 +45,11 @@ The first thing to check is the target: how often does SPY actually gain ≥ 1% 
 
 ![Class distribution](/images/stock-return-classifier/02_class_distribution.png)
 
-*The target class is highly imbalanced — only ~10–14% of trading days produce a ≥1% SPY gain (class 1). The remaining ~86–90% are flat or negative days (class 0).*
+*The target class is highly imbalanced — only ~13.7% of trading days produce a ≥1% SPY gain (class 1). The remaining ~86.3% are flat or negative days (class 0).*
 
 ### Why Imbalance Matters
 
-A naive model that predicts "0 every day" achieves ~87% accuracy but zero utility—it never generates a buy signal. This is the **accuracy paradox**: a high-accuracy model can be completely useless when classes are skewed.
+A naive model that predicts "0 every day" achieves ~86% accuracy but zero utility—it never generates a buy signal. This is the **accuracy paradox**: a high-accuracy model can be completely useless when classes are skewed.
 
 The imbalance directly drives three design decisions downstream:
 
@@ -59,10 +59,10 @@ The imbalance directly drives three design decisions downstream:
 
 ### Imbalance Ratio
 
-For the `default_run` (SPY 2006 – Jan 2025 training data):
-- Class 0 (flat/down): ~87% of days
-- Class 1 (≥1% up): ~13% of days
-- Imbalance ratio: approximately 6.7:1
+For the `spy_run` training data (SPY 2006 – Feb 2024):
+- Class 0 (flat/down): ~86.3% of days
+- Class 1 (≥1% up): ~13.7% of days
+- Imbalance ratio: approximately 6.1:1
 
 ## Feature Signal Analysis
 
@@ -76,18 +76,22 @@ Mutual information (MI) quantifies the statistical dependence between each featu
 
 The MI analysis reveals a clear ranking. Key findings:
 
-- **VIX_Close** and volatility-based features (`BB_Width`, `ATR_pct`) carry the strongest signal. High-volatility environments produce more large moves in both directions.
+- **Close** and price-level features carry the strongest MI signal—reflecting the fact that large absolute price moves (≥1%) are more common at higher price levels (higher dollar volatility).
+- **VIX_Close** and volatility-based features have moderate-to-strong MI. High-volatility environments produce more large moves in both directions.
 - **Momentum oscillators** (RSI, Stoch_K, ROC_3) have moderate MI—they capture mean-reversion and momentum cycles.
-- **Pure trend features** (EMA_8, EMA_21, ADX) have lower MI for this specific task. Trend indicators help identify *direction* over multi-day periods but are less discriminative for single-day ≥1% moves.
+- **Pure trend features** (ADX) and short-term returns (`Price_Return_1`) have the lowest MI for this specific task.
 
 ### Correlation Analysis
 
-A Pearson correlation heatmap across all features identifies redundant pairs. Features that are strongly correlated with each other (|r| > 0.95) add computational cost without independent information.
+A Pearson correlation heatmap across all features identifies redundant pairs. Features that are strongly correlated with each other (|r| > 0.85) add computational cost without independent information.
 
 Key redundancies found:
-- `EMA_8` and `EMA_21` are highly correlated with each other and with `Close`—they essentially re-encode the price level
-- `MACD_line` and `MACD_signal` are correlated by construction (signal is a smoothed MACD line)
-- `Stoch_K` and `Stoch_D` are correlated (D is a 3-day smooth of K)
+- `EMA_8` and `EMA_21` are highly correlated with each other and with `Close` (|r| > 0.99)—they essentially re-encode the price level
+- `BB_Low` is nearly identical to `Close` (|r| = 0.998)
+- `MACD_line` and `MACD_signal` are correlated by construction (signal is a smoothed MACD line, |r| = 0.948)
+- `Stoch_K` and `Stoch_D` are correlated (D is a 3-day smooth of K, |r| = 0.906)
+- `ROC_5` and `Price_Return_5` are perfectly correlated (|r| = 1.0)
+- `BB_Position`, `RSI`, and `Stoch_K` form a correlated cluster (all measure overbought/oversold conditions)
 
 Combined with the MI scores, this drives the feature dropping decisions below.
 
@@ -99,10 +103,11 @@ Several features show heavy right-skewed distributions:
 
 | Feature | Skewness (raw) | Issue |
 |---------|---------------|-------|
-| `Volume` | 3.8 | Right tail from high-volume event days |
-| `BB_Width` | 2.1 | Occasional volatility spikes inflate the tail |
-| `ATR_pct` | 1.9 | Same issue as BB_Width |
-| `MACD_line`, `MACD_hist` | signed oscillators | Large absolute values distort scaling |
+| `BB_Width` | 3.33 | Occasional volatility spikes inflate the tail |
+| `ATR_pct` | 3.17 | Same issue as BB_Width |
+| `VIX_Close` | 2.42 | Right tail from crisis periods |
+| `Volume` | 2.29 | Right tail from high-volume event days |
+| `MACD_line`, `MACD_signal` | -1.6 | Signed oscillators with asymmetric tails |
 
 Skewed features create two problems:
 
@@ -115,9 +120,11 @@ The EDA notebook writes all decisions to `eda_recommendations.json`:
 
 ```json
 {
-  "log1p_transforms": ["Volume", "BB_Width", "ATR_pct"],
-  "signed_log1p_transforms": ["MACD_line", "MACD_signal", "MACD_hist"],
-  "features_to_drop": ["EMA_8", "EMA_21", "Stoch_D", "BB_High", "BB_Low"]
+  "log1p_transforms": ["ATR_pct", "BB_Width", "VIX_Close", "Volume"],
+  "signed_log1p_transforms": ["MACD_line", "MACD_signal"],
+  "redundant_drops": ["ATR_pct", "Close", "BB_Low", "EMA_8", "EMA_21",
+                       "BB_Width", "BB_Position", "Stoch_K", "Stoch_D",
+                       "MACD_signal", "Price_Return_5"]
 }
 ```
 
@@ -131,6 +138,7 @@ For right-skewed non-negative features, we apply `log1p(x)` — which maps 0→0
 df["Volume"] = np.log1p(df["Volume"])
 df["BB_Width"] = np.log1p(df["BB_Width"])
 df["ATR_pct"] = np.log1p(df["ATR_pct"])
+df["VIX_Close"] = np.log1p(df["VIX_Close"])
 ```
 
 For signed oscillators (MACD features), we use the sign-preserving variant:
@@ -143,50 +151,51 @@ This preserves the direction of the signal while compressing extreme magnitudes.
 
 ![Log1p distribution comparison](/images/stock-return-classifier/04_feature_transforms.png)
 
-*Before/after distributions for selected features. Skewness drops from double-digits to near zero for Volume and ATR_pct. The MACD features become visually symmetric around zero after the signed log1p transform. These better-behaved distributions improve Logistic Regression performance and stabilise Z-score normalization.*
+*Before/after distributions for transformed features. Skewness drops significantly—Volume goes from 2.29 to 0.50, VIX_Close from 2.42 to 0.95. The MACD features become visually more symmetric around zero after the signed log1p transform. These better-behaved distributions improve Logistic Regression performance and stabilise Z-score normalization.*
 
 ### Feature Dropping
 
 Features meeting either of these criteria are dropped:
 
-1. **Near-zero MI** combined with **near-zero Pearson correlation**: the feature contributes no detectable linear or non-linear signal
-2. **High correlation with a retained feature**: redundant, wastes model capacity
+1. **High correlation with a retained feature** (|r| > 0.85): redundant, wastes model capacity
+2. **Near-zero MI** combined with **near-zero Pearson correlation**: the feature contributes no detectable linear or non-linear signal
 
-Final feature set after dropping (retained features):
+11 features are dropped, leaving a final set of **12 features**:
 
 | Category | Retained |
 |----------|---------|
-| Price | `Close` |
 | Volume | `Volume` (log1p) |
-| Macro | `VIX_Close` |
-| Volatility | `BB_Width` (log1p), `BB_Position`, `ATR_pct` (log1p) |
+| Macro | `VIX_Close` (log1p) |
+| Volatility | `BB_High` |
 | Trend | `ADX` |
-| Momentum | `RSI`, `MACD_line` (signed log1p), `MACD_hist` (signed log1p), `Stoch_K`, `ROC_3`, `ROC_5`, `Price_Return_1`, `Price_Return_5`, `IBS` |
+| Momentum | `RSI`, `MACD_line` (signed log1p), `MACD_hist`, `ROC_3`, `ROC_5`, `Price_Return_1`, `IBS` |
+| Price | `Close` |
 
-Dropped: `EMA_8`, `EMA_21`, `MACD_signal` (correlated with MACD_line), `Stoch_D` (correlated with Stoch_K), `BB_High`, `BB_Low` (subsumed by BB_Width and BB_Position).
+Dropped: `ATR_pct` (correlated with VIX_Close), `BB_Low` (correlated with Close), `BB_Width` (correlated with ATR_pct), `BB_Position` (correlated with RSI/Stoch_K), `EMA_8`, `EMA_21` (correlated with Close), `MACD_signal` (correlated with MACD_line), `Stoch_K`, `Stoch_D` (correlated cluster with BB_Position/RSI), `Price_Return_5` (identical to ROC_5).
 
 ## Temporal Split Design
 
-The EDA and all downstream notebooks operate on training data only—the test set (last 1 year) is never touched until the final evaluation notebook. This reflects a strict no-peeking policy:
+The EDA and all downstream notebooks operate on training data only—the test set (last 2 years) is never touched until the final evaluation notebook. This reflects a strict no-peeking policy:
 
 ```
 Full dataset (2006 – Feb 2026):
-├── Training + Validation (2006 – Feb 2025): ~4,800 rows
+├── Training + Validation (2006 – Feb 2024): 4,583 rows
 │   ├── Fold 1 train | Fold 1 val
 │   ├── Fold 2 train | Fold 2 val
 │   ├── ...
 │   └── Fold 5 train | Fold 5 val
-└── Test (Feb 2025 – Feb 2026): 251 rows ← never used until notebook 07
+└── Test (Feb 2024 – Feb 2026): 502 rows ← never used until notebook 07
 ```
 
 EDA, feature selection, and log1p transforms are all determined from training data—the test set's distribution is irrelevant to these decisions.
 
 ## Key Takeaways
 
-1. **Class imbalance (~87/13) is the dominant challenge**. Every downstream decision—HPT metric, class weights, calibration—flows from this.
-2. **VIX and volatility features carry the strongest signal** for ≥1% moves. This makes intuitive sense: large moves require large volatility.
-3. **Log1p transforms are necessary** for Volume, BB_Width, and ATR_pct—their right tails would otherwise dominate normalization and distort Logistic Regression.
-4. **EDA-to-engineering linkage via JSON** keeps the pipeline honest: the feature engineering notebook re-reads EDA decisions rather than hard-coding them.
+1. **Class imbalance (~86/14) is the dominant challenge**. Every downstream decision—HPT metric, class weights, calibration—flows from this.
+2. **Close and VIX carry the strongest MI signal** for ≥1% moves. Price level matters because higher absolute prices produce larger dollar moves, and VIX captures the volatility regime.
+3. **Log1p transforms are necessary** for Volume, BB_Width, ATR_pct, and VIX_Close—their right tails would otherwise dominate normalization and distort Logistic Regression.
+4. **Aggressive redundancy pruning** removes 11 features (from 22 to 12), eliminating correlated clusters that add noise without independent signal.
+5. **EDA-to-engineering linkage via JSON** keeps the pipeline honest: the feature engineering notebook re-reads EDA decisions rather than hard-coding them.
 
 ## What's Next?
 

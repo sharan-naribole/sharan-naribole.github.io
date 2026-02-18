@@ -35,7 +35,7 @@ toc: true
 
 After completing the [DQN Trading series](/posts/2026/01/01/dqn-trading-part-I), I wanted to revisit the same SPY prediction problem through a **supervised learning** lens. Reinforcement learning directly optimises a trading policy—but can a simpler binary classifier reliably identify high-return days before they happen?
 
-This series documents building a complete ML pipeline to predict whether SPY (the S&P 500 ETF) will gain **≥ 1% in a single trading day**. The pipeline covers data collection, feature engineering, EDA, model training, temporal cross-validation, and portfolio backtesting on a held-out test year.
+This series documents building a complete ML pipeline to predict whether SPY (the S&P 500 ETF) will gain **≥ 1% in a single trading day**. The pipeline covers data collection, feature engineering, EDA, model training, temporal cross-validation, and portfolio backtesting on a held-out 2-year test period.
 
 The complete code is available on [GitHub](https://github.com/sharan-naribole/stock-return-classifier).
 
@@ -82,14 +82,14 @@ The project is structured as a sequence of seven standalone notebooks, each read
 | # | Notebook | Output |
 |---|----------|--------|
 | 01 | Data Collection | `data/raw/{project}_raw.parquet` |
-| 02 | Data Preprocessing | 22 features added, temporal splits |
+| 02 | Data Preprocessing | 22 features added, target created, temporal splits, normalization |
 | 03 | EDA | Distribution plots, MI scores → `eda_recommendations.json` |
 | 04 | Feature Engineering | Log1p transforms, redundant features dropped |
 | 05 | Baseline Models | Majority-class and MACD momentum benchmarks |
-| 06 | ML Models | HPT, learning curves, `best_model.pkl` |
+| 06 | ML Models | HPT, learning curves, model selection, `best_model.pkl` |
 | 07 | Test Evaluation | Confusion matrix, ROC, calibration, portfolio simulation |
 
-Two JSON configs control every experiment—switch between `default_run` (SPY 2006–present, 5-fold expanding CV) and `dry_run` (3-year window, smaller HPT grids) by setting `PROJECT_FOLDER` at the top of each notebook.
+Two JSON configs control every experiment—`data_config.json` (ticker, date range, splits) and `model_config.json` (models, hyperparameters, portfolio settings)—by setting `PROJECT_FOLDER` at the top of each notebook.
 
 ## Data Collection
 
@@ -104,10 +104,10 @@ Both are downloaded via `yfinance` with smart CSV caching: the cache filename en
 
 ### Date Range
 
-The `default_run` config uses:
+The `spy_run` config uses:
 - **Start**: 2006-01-01 (with 60-day buffer prepended)
 - **End**: auto (yesterday's close)
-- **Test period**: last 1 year held out (Feb 2025 – Feb 2026 in the current run)
+- **Test period**: last 2 years held out (Feb 2024 – Feb 2026 in the current run)
 
 ## Technical Indicators
 
