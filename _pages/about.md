@@ -9,6 +9,7 @@ redirect_from:
 ---
 
 ## News
+- [Feb 2026] Posted [Stock Return Classifier Blog Series](/posts/2026/02/17/stock-return-classifier-part-I) (4 parts)
 - [Jan 2026] Posted [Deep Q-Network Trading Blog Series](/posts/2026/01/01/dqn-trading-part-I) (5 parts)
 - [Dec 2025] Posted [STM32 RTOS + Wi-Fi Blog Series](/posts/2025/09/02/stm32-led-blinker-bare-metal) (4 parts)
 - [Jun 2025] Posted [AI Trading Portfolio Eval](/posts/2025/06/07/portfolio-eval) blog
